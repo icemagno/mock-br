@@ -1,0 +1,126 @@
+<!-- Header Superior Gov.BR -->
+<header class="header">
+  <div class="header-content">
+    <div class="logo-area">
+      <span class="gov-logo">gov.br</span>
+      <span class="app-tag">SISTEMA CONSUMIDOR DE TESTE</span>
+    </div>
+    <div *ngIf="user" class="user-greeting">
+      <span>Olá, <strong>{{ user.social_name || user.given_name || user.name }}</strong></span>
+      <button (click)="logout()" class="btn-logout-header">Sair</button>
+    </div>
+  </div>
+</header>
+
+<main class="main-container">
+
+  <!-- Estado: Carregando -->
+  <div *ngIf="loading" class="card loading-card">
+    <div class="spinner"></div>
+    <p>Verificando autenticação com o gov.br...</p>
+  </div>
+
+  <!-- Estado: Sucesso (Usuário Logado) -->
+  <div *ngIf="!loading && status === 'success' && user" class="card success-card">
+    <div class="status-header success-header">
+      <div class="status-icon success-icon">✓</div>
+      <div>
+        <h1 class="status-title success-title">Sucesso! Você está logado</h1>
+        <p class="status-subtitle">Autenticação validada com sucesso pelo provedor Gov.BR.</p>
+      </div>
+    </div>
+
+    <!-- Informações do Cidadão Retornadas pelo Gov.BR -->
+    <div class="user-info-section">
+      <h2 class="section-title">Dados do Cidadão Autenticado (Claims OIDC)</h2>
+
+      <div class="info-grid">
+        <div class="info-item">
+          <label>Nome Completo</label>
+          <span>{{ user.name }}</span>
+        </div>
+
+        <div class="info-item" *ngIf="user.social_name">
+          <label>Nome Social</label>
+          <span style="color: #0c326f; font-weight: 600;">{{ user.social_name }}</span>
+        </div>
+
+        <div class="info-item">
+          <label>Número do CPF</label>
+          <span>{{ formatCpf(user.cpf) }}</span>
+        </div>
+
+        <div class="info-item">
+          <label>E-mail</label>
+          <span>{{ user.email || 'Não informado' }}</span>
+        </div>
+
+        <div class="info-item">
+          <label>Telefone</label>
+          <span>{{ user.phone_number || 'Não informado' }}</span>
+        </div>
+
+        <div class="info-item">
+          <label>Nível da Conta Gov.BR</label>
+          <span [ngClass]="'badge-selo selo-' + (user.nivel ? user.nivel.toLowerCase() : 'ouro')">
+            Selo {{ user.nivel || 'Ouro' }}
+          </span>
+        </div>
+
+        <div class="info-item">
+          <label>Duplo Fator de Autenticação (2FA)</label>
+          <span [ngClass]="user.mfa_verified ? 'badge-mfa mfa-yes' : 'badge-mfa mfa-no'">
+            {{ user.mfa_verified ? 'Sim (Segundo fator utilizado)' : 'Não (Apenas senha)' }}
+          </span>
+        </div>
+
+        <div class="info-item full-width">
+          <label>Métodos de Autenticação (AMR)</label>
+          <code>{{ user.amr ? user.amr.join(', ') : 'passwd' }}</code>
+        </div>
+
+        <div class="info-item full-width" *ngIf="user.reliabilities && user.reliabilities.length > 0">
+          <label>Selos de Confiabilidade</label>
+          <ul class="reliabilities-list">
+            <li *ngFor="let selo of user.reliabilities">{{ selo }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button (click)="logout()" class="btn btn-secondary">Desconectar / Sair</button>
+    </div>
+  </div>
+
+  <!-- Estado: Erro -->
+  <div *ngIf="!loading && status === 'error'" class="card error-card">
+    <div class="status-header error-header">
+      <div class="status-icon error-icon">✕</div>
+      <div>
+        <h1 class="status-title error-title">Falha na Autenticação</h1>
+        <p class="status-subtitle">{{ errorMessage }}</p>
+      </div>
+    </div>
+    <div class="actions">
+      <button (click)="login()" class="btn btn-primary">Tentar Novamente</button>
+    </div>
+  </div>
+
+  <!-- Estado: Não Autenticado -->
+  <div *ngIf="!loading && status === 'unauthenticated'" class="card unauth-card">
+    <div class="status-header unauth-header">
+      <div class="status-icon unauth-icon">ℹ</div>
+      <div>
+        <h1 class="status-title">Bem-vindo ao Sistema Consumidor</h1>
+        <p class="status-subtitle">Para acessar seus dados e permissões, realize o login com sua conta Gov.BR.</p>
+      </div>
+    </div>
+    <div class="actions">
+      <button (click)="login()" class="btn btn-primary btn-gov">
+        <span class="gov-icon"></span> Entrar com GOV.BR
+      </button>
+    </div>
+  </div>
+
+</main>

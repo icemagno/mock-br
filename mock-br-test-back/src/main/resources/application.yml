@@ -1,0 +1,37 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: mock-br-test-back
+  security:
+    oauth2:
+      client:
+        provider:
+          govbr:
+            # Aponta para o mock do Gov.BR
+            issuer-uri: ${GOVBR_ISSUER_URI:http://localhost:8089}
+            user-name-attribute: sub
+        registration:
+          govbr:
+            client-id: test-consumer-app
+            client-secret: dev-secret-123
+            client-name: "gov.br"
+            provider: govbr
+            authorization-grant-type: authorization_code
+            redirect-uri: "{baseUrl}/login/oauth2/code/govbr"
+            scope:
+              - openid
+              - profile
+              - email
+              - phone
+              - govbr_confiabilidades
+
+app:
+  frontend-url: ${FRONTEND_URL:http://localhost:4200}
+
+logging:
+  level:
+    root: INFO
+    org.springframework.security: DEBUG
+    br.gov.defesa.testback: DEBUG

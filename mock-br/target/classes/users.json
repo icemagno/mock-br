@@ -1,0 +1,439 @@
+[
+  {
+    "cpf": "11122233344",
+    "password": "123",
+    "name": "CARLOS ALBERTO DA SILVA",
+    "social_name": null,
+    "given_name": "CARLOS",
+    "family_name": "ALBERTO DA SILVA",
+    "email": "carlos.silva@email.com",
+    "email_verified": true,
+    "phone_number": "61988881111",
+    "phone_number_verified": true,
+    "birthdate": "1975-04-12",
+    "picture": "https://avatar.iran.liara.run/public/boy?username=carlos",
+    "profile": "https://servicos.acesso.gov.br/",
+    "updated_at": 1712000000,
+    "nivel": "Ouro",
+    "mfa_enabled": null,
+    "reliability_info": {
+      "level": "gold",
+      "reliabilities": [
+        { "id": "701", "updatedAt": "2025-07-02T14:17:16.001-0300" },
+        { "id": "801", "updatedAt": "2025-08-19T16:41:24.853-0300" }
+      ]
+    },
+    "reliabilities": [
+      "Biometria Facial TSE (701)",
+      "Certificado Digital ICP-Brasil (801)"
+    ]
+  },
+  {
+    "cpf": "22233344455",
+    "password": "123",
+    "name": "MARCOS ANDRADE DE LIMA",
+    "social_name": null,
+    "given_name": "MARCOS",
+    "family_name": "ANDRADE DE LIMA",
+    "email": "marcos.lima@email.com",
+    "email_verified": true,
+    "phone_number": "21977772222",
+    "phone_number_verified": true,
+    "birthdate": "1982-08-25",
+    "picture": "https://avatar.iran.liara.run/public/boy?username=marcos",
+    "profile": "https://servicos.acesso.gov.br/",
+    "updated_at": 1713000000,
+    "nivel": "Ouro",
+    "mfa_enabled": null,
+    "reliability_info": {
+      "level": "gold",
+      "reliabilities": [
+        { "id": "401", "updatedAt": "2025-05-10T09:30:00.000-0300" },
+        { "id": "602", "updatedAt": "2025-06-15T11:20:00.000-0300" },
+        { "id": "701", "updatedAt": "2025-08-01T15:00:00.000-0300" }
+      ]
+    },
+    "reliabilities": [
+      "Biometria Facial Senatran (401)",
+      "Internet Banking Banco do Brasil (602)",
+      "Biometria Facial TSE (701)"
+    ]
+  },
+  {
+    "cpf": "33344455566",
+    "password": "123",
+    "name": "LUCIANA PEREIRA COSTA",
+    "social_name": null,
+    "given_name": "LUCIANA",
+    "family_name": "PEREIRA COSTA",
+    "email": "luciana.costa@email.com",
+    "email_verified": true,
+    "phone_number": "61966663333",
+    "phone_number_verified": true,
+    "birthdate": "1990-11-03",
+    "picture": "https://avatar.iran.liara.run/public/girl?username=luciana",
+    "profile": "https://servicos.acesso.gov.br/",
+    "updated_at": 1714000000,
+    "nivel": "Prata",
+    "mfa_enabled": null,
+    "reliability_info": {
+      "level": "silver",
+      "reliabilities": [
+        { "id": "605", "updatedAt": "2025-04-12T10:15:00.000-0300" },
+        { "id": "301", "updatedAt": "2025-06-20T14:45:00.000-0300" }
+      ]
+    },
+    "reliabilities": [
+      "Internet Banking Caixa Econômica Federal (605)",
+      "Base Servidores Públicos SIGEPE (301)"
+    ]
+  },
+  {
+    "cpf": "44455566677",
+    "password": "123",
+    "name": "PAULO ROBERTO DE SOUZA",
+    "social_name": null,
+    "given_name": "PAULO",
+    "family_name": "ROBERTO DE SOUZA",
+    "email": "paulo.souza@email.com",
+    "email_verified": true,
+    "phone_number": "61955554444",
+    "phone_number_verified": true,
+    "birthdate": "1960-02-18",
+    "picture": "https://avatar.iran.liara.run/public/boy?username=paulo",
+    "profile": "https://servicos.acesso.gov.br/",
+    "updated_at": 1715000000,
+    "nivel": "Ouro",
+    "mfa_enabled": null,
+    "reliability_info": {
+      "level": "gold",
+      "reliabilities": [
+        { "id": "701", "updatedAt": "2025-03-14T08:00:00.000-0300" },
+        { "id": "901", "updatedAt": "2025-07-25T16:20:00.000-0300" }
+      ]
+    },
+    "reliabilities": [
+      "Biometria Facial TSE (701)",
+      "Carteira de Identidade Nacional CIN (901)"
+    ]
+  },
+  {
+    "cpf": "55566677788",
+    "password": "123",
+    "name": "MARIA DE FATIMA OLIVEIRA",
+    "social_name": null,
+    "given_name": "MARIA",
+    "family_name": "DE FATIMA OLIVEIRA",
+    "email": "maria.fatima@email.com",
+    "email_verified": false,
+    "phone_number": "21944445555",
+    "phone_number_verified": false,
+    "birthdate": "1954-07-30",
+    "picture": "https://avatar.iran.liara.run/public/girl?username=maria",
+    "profile": "https://servicos.acesso.gov.br/",
+    "updated_at": 1711000000,
+    "nivel": "Bronze",
+    "mfa_enabled": false,
+    "reliability_info": {
+      "level": "bronze",
+      "reliabilities": [
+        { "id": "201", "updatedAt": "2024-01-15T09:00:00.000-0300" }
+      ]
+    },
+    "reliabilities": [
+      "Cadastro Básico Receita Federal (201)"
+    ]
+  },
+  {
+    "cpf": "66677788899",
+    "password": "123",
+    "name": "BEATRIZ MENDES FONTES",
+    "social_name": "BIA MENDES",
+    "given_name": "BEATRIZ",
+    "family_name": "MENDES FONTES",
+    "email": "beatriz.fontes@email.com",
+    "email_verified": true,
+    "phone_number": "31987654321",
+    "phone_number_verified": true,
+    "birthdate": "1988-09-14",
+    "picture": "https://avatar.iran.liara.run/public/girl?username=beatriz",
+    "profile": "https://servicos.acesso.gov.br/",
+    "updated_at": 1716000000,
+    "nivel": "Prata",
+    "mfa_enabled": null,
+    "reliability_info": {
+      "level": "silver",
+      "reliabilities": [
+        { "id": "610", "updatedAt": "2025-02-18T13:30:00.000-0300" },
+        { "id": "504", "updatedAt": "2025-05-12T17:00:00.000-0300" }
+      ]
+    },
+    "reliabilities": [
+      "Internet Banking Itaú (610)",
+      "Balcão Presencial gov.br (504)"
+    ]
+  },
+  {
+    "cpf": "77788899900",
+    "password": "123",
+    "name": "FERNANDO HENRIQUE DIAS",
+    "social_name": null,
+    "given_name": "FERNANDO",
+    "family_name": "HENRIQUE DIAS",
+    "email": "fernando.dias@email.com",
+    "email_verified": true,
+    "phone_number": "41991234567",
+    "phone_number_verified": true,
+    "birthdate": "1995-12-05",
+    "picture": "https://avatar.iran.liara.run/public/boy?username=fernando",
+    "profile": "https://servicos.acesso.gov.br/",
+    "updated_at": 1717000000,
+    "nivel": "Ouro",
+    "mfa_enabled": true,
+    "reliability_info": {
+      "level": "gold",
+      "reliabilities": [
+        { "id": "701", "updatedAt": "2025-06-01T10:00:00.000-0300" },
+        { "id": "801", "updatedAt": "2025-07-20T14:10:00.000-0300" }
+      ]
+    },
+    "reliabilities": [
+      "Biometria Facial TSE (701)",
+      "Certificado Digital ICP-Brasil (801)"
+    ]
+  },
+  {
+    "cpf": "88899900011",
+    "password": "123",
+    "name": "GABRIELA SANTOS ROCHA",
+    "social_name": null,
+    "given_name": "GABRIELA",
+    "family_name": "SANTOS ROCHA",
+    "email": "gabriela.rocha@email.com",
+    "email_verified": true,
+    "phone_number": "71988887777",
+    "phone_number_verified": true,
+    "birthdate": "2001-03-22",
+    "picture": "https://avatar.iran.liara.run/public/girl?username=gabriela",
+    "profile": "https://servicos.acesso.gov.br/",
+    "updated_at": 1718000000,
+    "nivel": "Prata",
+    "mfa_enabled": null,
+    "reliability_info": {
+      "level": "silver",
+      "reliabilities": [
+        { "id": "604", "updatedAt": "2025-03-10T11:00:00.000-0300" },
+        { "id": "626", "updatedAt": "2025-06-15T09:30:00.000-0300" }
+      ]
+    },
+    "reliabilities": [
+      "Internet Banking Bradesco (604)",
+      "Internet Banking Nubank (626)"
+    ]
+  },
+  {
+    "cpf": "99900011122",
+    "password": "123",
+    "name": "RODRIGO MARTINS AZEVEDO",
+    "social_name": null,
+    "given_name": "RODRIGO",
+    "family_name": "MARTINS AZEVEDO",
+    "email": "rodrigo.azevedo@email.com",
+    "email_verified": true,
+    "phone_number": "51981112233",
+    "phone_number_verified": true,
+    "birthdate": "1978-06-19",
+    "picture": "https://avatar.iran.liara.run/public/boy?username=rodrigo",
+    "profile": "https://servicos.acesso.gov.br/",
+    "updated_at": 1718500000,
+    "nivel": "Ouro",
+    "mfa_enabled": null,
+    "reliability_info": {
+      "level": "gold",
+      "reliabilities": [
+        { "id": "801", "updatedAt": "2025-01-20T10:15:00.000-0300" },
+        { "id": "608", "updatedAt": "2025-04-18T15:20:00.000-0300" },
+        { "id": "701", "updatedAt": "2025-08-11T12:00:00.000-0300" }
+      ]
+    },
+    "reliabilities": [
+      "Certificado Digital ICP-Brasil (801)",
+      "Internet Banking Santander (608)",
+      "Biometria Facial TSE (701)"
+    ]
+  },
+  {
+    "cpf": "12345678901",
+    "password": "123",
+    "name": "ANA CAROLINA TEIXEIRA",
+    "social_name": null,
+    "given_name": "ANA",
+    "family_name": "CAROLINA TEIXEIRA",
+    "email": "ana.teixeira@email.com",
+    "email_verified": true,
+    "phone_number": "81992223344",
+    "phone_number_verified": true,
+    "birthdate": "1986-10-10",
+    "picture": "https://avatar.iran.liara.run/public/girl?username=ana",
+    "profile": "https://servicos.acesso.gov.br/",
+    "updated_at": 1719000000,
+    "nivel": "Prata",
+    "mfa_enabled": null,
+    "reliability_info": {
+      "level": "silver",
+      "reliabilities": [
+        { "id": "602", "updatedAt": "2025-02-14T09:10:00.000-0300" },
+        { "id": "401", "updatedAt": "2025-05-19T14:30:00.000-0300" }
+      ]
+    },
+    "reliabilities": [
+      "Internet Banking Banco do Brasil (602)",
+      "Biometria Facial Senatran (401)"
+    ]
+  },
+  {
+    "cpf": "23456789012",
+    "password": "123",
+    "name": "LUCAS VINICIUS CARVALHO",
+    "social_name": null,
+    "given_name": "LUCAS",
+    "family_name": "VINICIUS CARVALHO",
+    "email": "lucas.carvalho@email.com",
+    "email_verified": true,
+    "phone_number": "92983334455",
+    "phone_number_verified": true,
+    "birthdate": "1998-01-15",
+    "picture": "https://avatar.iran.liara.run/public/boy?username=lucas",
+    "profile": "https://servicos.acesso.gov.br/",
+    "updated_at": 1719500000,
+    "nivel": "Bronze",
+    "mfa_enabled": false,
+    "reliability_info": {
+      "level": "bronze",
+      "reliabilities": [
+        { "id": "201", "updatedAt": "2024-03-22T08:00:00.000-0300" }
+      ]
+    },
+    "reliabilities": [
+      "Cadastro Básico Receita Federal (201)"
+    ]
+  },
+  {
+    "cpf": "34567890123",
+    "password": "123",
+    "name": "JULIANA MOREIRA BARROS",
+    "social_name": null,
+    "given_name": "JULIANA",
+    "family_name": "MOREIRA BARROS",
+    "email": "juliana.barros@email.com",
+    "email_verified": true,
+    "phone_number": "85994445566",
+    "phone_number_verified": true,
+    "birthdate": "1992-05-28",
+    "picture": "https://avatar.iran.liara.run/public/girl?username=juliana",
+    "profile": "https://servicos.acesso.gov.br/",
+    "updated_at": 1720000000,
+    "nivel": "Ouro",
+    "mfa_enabled": null,
+    "reliability_info": {
+      "level": "gold",
+      "reliabilities": [
+        { "id": "701", "updatedAt": "2025-04-11T16:00:00.000-0300" },
+        { "id": "801", "updatedAt": "2025-07-09T11:45:00.000-0300" }
+      ]
+    },
+    "reliabilities": [
+      "Biometria Facial TSE (701)",
+      "Certificado Digital ICP-Brasil (801)"
+    ]
+  },
+  {
+    "cpf": "45678901234",
+    "password": "123",
+    "name": "GUSTAVO HENRIQUE RIBEIRO",
+    "social_name": null,
+    "given_name": "GUSTAVO",
+    "family_name": "HENRIQUE RIBEIRO",
+    "email": "gustavo.ribeiro@email.com",
+    "email_verified": true,
+    "phone_number": "48985556677",
+    "phone_number_verified": true,
+    "birthdate": "1973-12-01",
+    "picture": "https://avatar.iran.liara.run/public/boy?username=gustavo",
+    "profile": "https://servicos.acesso.gov.br/",
+    "updated_at": 1720500000,
+    "nivel": "Ouro",
+    "mfa_enabled": null,
+    "reliability_info": {
+      "level": "gold",
+      "reliabilities": [
+        { "id": "801", "updatedAt": "2025-03-30T10:00:00.000-0300" },
+        { "id": "607", "updatedAt": "2025-05-18T14:20:00.000-0300" },
+        { "id": "901", "updatedAt": "2025-08-05T09:15:00.000-0300" }
+      ]
+    },
+    "reliabilities": [
+      "Certificado Digital ICP-Brasil (801)",
+      "Internet Banking Sicoob (607)",
+      "Carteira de Identidade Nacional CIN (901)"
+    ]
+  },
+  {
+    "cpf": "56789012345",
+    "password": "123",
+    "name": "PATRICIA ALBUQUERQUE LOPES",
+    "social_name": null,
+    "given_name": "PATRICIA",
+    "family_name": "ALBUQUERQUE LOPES",
+    "email": "patricia.lopes@email.com",
+    "email_verified": true,
+    "phone_number": "67996667788",
+    "phone_number_verified": true,
+    "birthdate": "1980-04-09",
+    "picture": "https://avatar.iran.liara.run/public/girl?username=patricia",
+    "profile": "https://servicos.acesso.gov.br/",
+    "updated_at": 1721000000,
+    "nivel": "Prata",
+    "mfa_enabled": null,
+    "reliability_info": {
+      "level": "silver",
+      "reliabilities": [
+        { "id": "602", "updatedAt": "2025-01-28T11:00:00.000-0300" },
+        { "id": "605", "updatedAt": "2025-06-14T15:30:00.000-0300" }
+      ]
+    },
+    "reliabilities": [
+      "Internet Banking Banco do Brasil (602)",
+      "Internet Banking Caixa (605)"
+    ]
+  },
+  {
+    "cpf": "99988877766",
+    "password": "123",
+    "name": "EDUARDO HENRIQUE ALMEIDA",
+    "social_name": null,
+    "given_name": "EDUARDO",
+    "family_name": "HENRIQUE ALMEIDA",
+    "email": "eduardo.almeida@email.com",
+    "email_verified": true,
+    "phone_number": "61933332222",
+    "phone_number_verified": true,
+    "birthdate": "1970-07-07",
+    "picture": "https://avatar.iran.liara.run/public/boy?username=eduardo",
+    "profile": "https://servicos.acesso.gov.br/",
+    "updated_at": 1721500000,
+    "nivel": "Ouro",
+    "mfa_enabled": null,
+    "reliability_info": {
+      "level": "gold",
+      "reliabilities": [
+        { "id": "701", "updatedAt": "2025-05-02T13:40:00.000-0300" },
+        { "id": "801", "updatedAt": "2025-08-20T17:15:00.000-0300" }
+      ]
+    },
+    "reliabilities": [
+      "Biometria Facial TSE (701)",
+      "Certificado Digital ICP-Brasil (801)"
+    ]
+  }
+]

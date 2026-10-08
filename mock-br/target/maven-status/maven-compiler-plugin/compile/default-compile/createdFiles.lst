@@ -1,0 +1,13 @@
+br\gov\defesa\mockgovbr\model\MockUser$ReliabilityInfo.class
+br\gov\defesa\mockgovbr\service\UserService.class
+br\gov\defesa\mockgovbr\controller\OidcController.class
+br\gov\defesa\mockgovbr\model\MockUser.class
+br\gov\defesa\mockgovbr\service\TokenService$UserSession.class
+br\gov\defesa\mockgovbr\model\MockUser$ReliabilityItem.class
+br\gov\defesa\mockgovbr\MockGovBrApplication.class
+br\gov\defesa\mockgovbr\service\UserService$1.class
+br\gov\defesa\mockgovbr\service\TokenService.class
+br\gov\defesa\mockgovbr\config\SecurityConfig.class
+br\gov\defesa\mockgovbr\service\KeyService.class
+br\gov\defesa\mockgovbr\controller\OidcController$AuthCodeRecord.class
+br\gov\defesa\mockgovbr\model\TokenResponse.class

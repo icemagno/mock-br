@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Identifique-se no gov.br</title>
+    <style>
+        :root {
+            --gov-blue-dark: #002244;
+            --gov-blue-main: #1351b4;
+            --gov-blue-hover: #0c326f;
+            --gov-gray-bg: #ffffff;
+            --gov-gray-card-border: #d1d5db;
+            --gov-text: #111827;
+            --gov-text-muted: #4b5563;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--gov-gray-bg);
+            color: var(--gov-text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Top Bar Gov.br */
+        .gov-header {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 12px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .govbr-logo {
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            line-height: 1;
+            font-family: sans-serif;
+        }
+
+        .logo-gov {
+            color: #1351b4;
+        }
+
+        .logo-dot {
+            color: #facc15;
+        }
+
+        .logo-br {
+            color: #15803d;
+        }
+
+        .header-tools {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .tool-link {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            color: #1351b4;
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 4px 6px;
+        }
+
+        .tool-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Área Central */
+        .main-wrapper {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .content-container {
+            max-width: 1040px;
+            width: 100%;
+        }
+
+        .step-panel {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 60px;
+            width: 100%;
+        }
+
+        /* Coluna da Esquerda (Ilustração) */
+        .left-col {
+            flex: 1;
+            max-width: 440px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .banner-img-step1 {
+            width: 100%;
+            max-width: 440px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            object-fit: cover;
+        }
+
+        .banner-img-step2 {
+            width: 100%;
+            max-width: 290px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .step2-left-text {
+            font-size: 14px;
+            color: var(--gov-text-muted);
+            text-align: center;
+            margin-top: 20px;
+            line-height: 1.45;
+            max-width: 320px;
+        }
+
+        /* Coluna da Direita (Card de Login) */
+        .right-col {
+            flex: 1;
+            max-width: 440px;
+        }
+
+        .login-card {
+            background: #ffffff;
+            border: 1px solid var(--gov-gray-card-border);
+            border-radius: 6px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+            padding: 36px 32px;
+        }
+
+        .card-title {
+            font-size: 19px;
+            font-weight: 700;
+            color: var(--gov-text);
+            margin-bottom: 6px;
+        }
+
+        .card-subtitle {
+            font-size: 14px;
+            color: var(--gov-text-muted);
+            margin-bottom: 24px;
+            line-height: 1.4;
+        }
+
+        /* Formulários e Inputs */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--gov-text);
+            margin-bottom: 6px;
+        }
+
+        .gov-input {
+            width: 100%;
+            padding: 11px 14px;
+            font-size: 15px;
+            border: 1px solid #9ca3af;
+            border-radius: 4px;
+            outline: none;
+            transition: border-color 0.15s, box-shadow 0.15s;
+        }
+
+        .gov-input:focus {
+            border-color: var(--gov-blue-main);
+            box-shadow: 0 0 0 3px rgba(19, 81, 180, 0.18);
+        }
+
+        .password-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .password-wrapper .gov-input {
+            padding-right: 44px;
+        }
+
+        .btn-toggle-eye {
+            position: absolute;
+            right: 12px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #6b7280;
+            padding: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-toggle-eye:hover {
+            color: var(--gov-blue-main);
+        }
+
+        /* Visualização do CPF no Passo 2 */
+        .cpf-display-box {
+            margin-bottom: 20px;
+        }
+
+        .cpf-display-label {
+            font-size: 13px;
+            color: var(--gov-text-muted);
+            margin-bottom: 4px;
+        }
+
+        .cpf-display-value {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--gov-text);
+            letter-spacing: 0.3px;
+        }
+
+        /* Botões Oficiais Gov.br */
+        .btn-primary {
+            background-color: var(--gov-blue-main);
+            color: #ffffff;
+            font-size: 15px;
+            font-weight: 700;
+            padding: 10px 28px;
+            border: none;
+            border-radius: 24px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--gov-blue-hover);
+        }
+
+        .btn-outline {
+            background-color: #ffffff;
+            color: var(--gov-blue-main);
+            font-size: 15px;
+            font-weight: 700;
+            padding: 8px 24px;
+            border: 2px solid var(--gov-blue-main);
+            border-radius: 24px;
+            cursor: pointer;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .btn-outline:hover {
+            background-color: #eff6ff;
+        }
+
+        .btn-group-step2 {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            margin-top: 24px;
+        }
+
+        /* Mensagens de Alerta */
+        .error-banner {
+            background-color: #fee2e2;
+            border-left: 4px solid #dc2626;
+            color: #991b1b;
+            padding: 10px 14px;
+            border-radius: 4px;
+            margin-bottom: 18px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* Links */
+        .link-blue {
+            color: var(--gov-blue-main);
+            font-size: 14px;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .link-blue:hover {
+            text-decoration: underline;
+        }
+
+        .link-center {
+            text-align: center;
+            margin-top: 24px;
+        }
+
+        .link-duvidas-wrapper {
+            text-align: center;
+            margin-top: 24px;
+        }
+
+        .link-duvidas {
+            color: var(--gov-blue-main);
+            font-size: 14px;
+            text-decoration: underline;
+            font-weight: 500;
+        }
+
+        /* Outras opções de identificação (Passo 1) */
+        .outras-opcoes-divider {
+            margin-top: 28px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .outras-opcoes-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--gov-text-muted);
+            margin-bottom: 12px;
+        }
+
+        .opcao-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 0;
+            color: var(--gov-blue-main);
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        .opcao-item:last-child {
+            border-bottom: none;
+        }
+
+        .opcao-item:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsividade */
+        @media (max-width: 820px) {
+            .step-panel {
+                flex-direction: column;
+                gap: 32px;
+            }
+            .left-col, .right-col {
+                max-width: 100%;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Superior Oficial Gov.BR -->
+    <header class="gov-header">
+        <a href="/" class="logo-container">
+            <div class="govbr-logo">
+                <span class="logo-gov">gov</span><span class="logo-dot">.</span><span class="logo-br">br</span>
+            </div>
+        </a>
+
+        <div class="header-tools">
+            <button type="button" class="tool-link" onclick="toggleContrast()">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14v12c3.31 0 6-2.69 6-6s-2.69-6-6-6z"/>
+                </svg>
+                <span>Alto Contraste</span>
+            </button>
+            <button type="button" class="tool-link">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                    <path d="M12 2a2 2 0 100 4 2 2 0 000-4zm-1 6v14h2V8h-2z"/>
+                </svg>
+                <span>VLibras</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Área Principal de Login -->
+    <main class="main-wrapper">
+        <div class="content-container">
+
+            <!-- Formulário Global para Envio ao /authorize -->
+            <form id="loginForm" th:action="@{/authorize}" method="post">
+                <input type="hidden" name="clientId" th:value="${clientId}" />
+                <input type="hidden" name="redirectUri" th:value="${redirectUri}" />
+                <input type="hidden" name="state" th:value="${state}" />
+                <input type="hidden" name="nonce" th:value="${nonce}" />
+                <input type="hidden" name="codeChallenge" th:value="${codeChallenge}" />
+                <input type="hidden" name="codeChallengeMethod" th:value="${codeChallengeMethod}" />
+                <input type="hidden" id="hiddenCpf" name="cpf" />
+
+                <!-- ======================================================= -->
+                <!-- PASSO 1: TELA PRINCIPAL (Entrada de CPF)                -->
+                <!-- ======================================================= -->
+                <div id="step-cpf" class="step-panel">
+                    <!-- Ilustração à Esquerda -->
+                    <div class="left-col">
+                        <img th:src="@{/images/conta_govbr_v2_defeso-eleitoral.jpg}"
+                             alt="Uma conta gov.br garante a identificação de cada cidadão"
+                             class="banner-img-step1" />
+                    </div>
+
+                    <!-- Card à Direita -->
+                    <div class="right-col">
+                        <div class="login-card">
+                            <h1 class="card-title">Identifique-se no gov.br com:</h1>
+                            <p class="card-subtitle">Digite seu CPF para criar ou acessar sua conta gov.br</p>
+
+                            <div class="form-group">
+                                <label for="cpfInput" class="form-label">Número do CPF</label>
+                                <input type="text"
+                                       id="cpfInput"
+                                       class="gov-input"
+                                       placeholder="Digite seu CPF"
+                                       maxlength="14"
+                                       autocomplete="off"
+                                       autofocus />
+                                <span id="cpfError" style="color: #dc2626; font-size: 13px; display: none; margin-top: 6px;">
+                                    Informe um CPF válido com 11 dígitos.
+                                </span>
+                            </div>
+
+                            <button type="button" class="btn-primary" onclick="goToStepPassword()">Continuar</button>
+
+                            <!-- Opções Alternativas de Identificação -->
+                            <div class="outras-opcoes-divider">
+                                <div class="outras-opcoes-title">Outras opções de identificação:</div>
+                                <a href="javascript:void(0);" class="opcao-item">
+                                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                                        <path d="M4 10v7h3v-7H4zm6 0v7h3v-7h-3zm6 0v7h3v-7h-3zM2 22h19v-3H2v3zm9.5-20L2 6v2h19V6l-9.5-4z"/>
+                                    </svg>
+                                    <span>Login com seu banco</span>
+                                </a>
+                                <a href="javascript:void(0);" class="opcao-item">
+                                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                                        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
+                                    </svg>
+                                    <span>Seu certificado digital em nuvem</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="link-duvidas-wrapper">
+                            <a href="javascript:void(0);" class="link-blue">Termo de Uso e Aviso de Privacidade</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ======================================================= -->
+                <!-- PASSO 2: TELA DE SENHA (Conforme tela-senha.png)        -->
+                <!-- ======================================================= -->
+                <div id="step-password" class="step-panel" style="display: none;">
+                    <!-- Ilustração à Esquerda -->
+                    <div class="left-col">
+                        <img th:src="@{/images/senha.png}"
+                             alt="Digite sua senha"
+                             class="banner-img-step2" />
+                        <p class="step2-left-text">
+                            Digite sua senha para acessar serviços públicos digitais com sua conta gov.br
+                        </p>
+                    </div>
+
+                    <!-- Card à Direita -->
+                    <div class="right-col">
+                        <div class="login-card">
+                            <h2 class="card-title">Digite sua senha</h2>
+
+                            <!-- Alerta de Erro de Autenticação -->
+                            <div th:if="${error}" class="error-banner">
+                                <span th:text="${error}"></span>
+                            </div>
+
+                            <!-- Exibição do CPF Digitado -->
+                            <div class="cpf-display-box">
+                                <div class="cpf-display-label">CPF</div>
+                                <div id="displayCpf" class="cpf-display-value">000.000.000-00</div>
+                            </div>
+
+                            <!-- Campo de Senha -->
+                            <div class="form-group">
+                                <label for="passwordInput" class="form-label">Senha</label>
+                                <div class="password-wrapper">
+                                    <input type="password"
+                                           id="passwordInput"
+                                           name="password"
+                                           class="gov-input"
+                                           placeholder="Digite sua senha atual"
+                                           autocomplete="current-password" />
+                                    <button type="button"
+                                            class="btn-toggle-eye"
+                                            onclick="togglePasswordVisibility()"
+                                            title="Mostrar/ocultar senha">
+                                        <svg id="eyeIcon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                            <circle cx="12" cy="12" r="3"></circle>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Botões Cancelar e Entrar -->
+                            <div class="btn-group-step2">
+                                <button type="button" class="btn-outline" onclick="goToStepCpf()">Cancelar</button>
+                                <button type="submit" class="btn-primary">Entrar</button>
+                            </div>
+
+                            <div class="link-center">
+                                <a href="javascript:void(0);" class="link-blue">Esqueci minha senha</a>
+                            </div>
+                        </div>
+
+                        <div class="link-duvidas-wrapper">
+                            <a href="javascript:void(0);" class="link-duvidas">Ficou com dúvidas?</a>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </main>
+
+    <script th:inline="javascript">
+        // Máscara e formatação de CPF
+        const cpfInput = document.getElementById('cpfInput');
+        const hiddenCpf = document.getElementById('hiddenCpf');
+        const displayCpf = document.getElementById('displayCpf');
+        const cpfError = document.getElementById('cpfError');
+        const step1 = document.getElementById('step-cpf');
+        const step2 = document.getElementById('step-password');
+        const passwordInput = document.getElementById('passwordInput');
+
+        function formatCpfString(val) {
+            let digits = val.replace(/\D/g, '');
+            if (digits.length > 11) digits = digits.slice(0, 11);
+            if (digits.length > 9) {
+                return digits.replace(/(\d{3})(\d{3})(\d{3})(\d{1,2})/, '$1.$2.$3-$4');
+            } else if (digits.length > 6) {
+                return digits.replace(/(\d{3})(\d{3})(\d{1,3})/, '$1.$2.$3');
+            } else if (digits.length > 3) {
+                return digits.replace(/(\d{3})(\d{1,3})/, '$1.$2');
+            }
+            return digits;
+        }
+
+        cpfInput.addEventListener('input', function(e) {
+            e.target.value = formatCpfString(e.target.value);
+            cpfError.style.display = 'none';
+        });
+
+        cpfInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                goToStepPassword();
+            }
+        });
+
+        // Alternância de Divs: Passo 1 (CPF) -> Passo 2 (Senha)
+        function goToStepPassword() {
+            const rawDigits = cpfInput.value.replace(/\D/g, '');
+            if (rawDigits.length !== 11) {
+                cpfError.style.display = 'block';
+                cpfInput.focus();
+                return;
+            }
+
+            hiddenCpf.value = rawDigits;
+            displayCpf.innerText = formatCpfString(rawDigits);
+
+            step1.style.display = 'none';
+            step2.style.display = 'flex';
+            passwordInput.value = '';
+            passwordInput.focus();
+        }
+
+        // Alternância de Divs: Passo 2 (Senha) -> Passo 1 (CPF)
+        function goToStepCpf() {
+            step2.style.display = 'none';
+            step1.style.display = 'flex';
+            cpfInput.focus();
+        }
+
+        // Mostrar / Ocultar Senha (Ícone de Olho)
+        function togglePasswordVisibility() {
+            const isPassword = passwordInput.type === 'password';
+            passwordInput.type = isPassword ? 'text' : 'password';
+
+            const eyeSvg = document.getElementById('eyeIcon');
+            if (isPassword) {
+                // Ícone com corte (ocultar)
+                eyeSvg.innerHTML = `
+                    <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                    <line x1="1" y1="1" x2="23" y2="23"></line>
+                `;
+            } else {
+                // Ícone normal (mostrar)
+                eyeSvg.innerHTML = `
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                `;
+            }
+        }
+
+        // Suporte a Alto Contraste
+        function toggleContrast() {
+            document.body.classList.toggle('high-contrast');
+        }
+
+        // Caso o backend tenha retornado com erro (ex: senha incorreta), reabre diretamente o passo 2
+        window.addEventListener('DOMContentLoaded', () => {
+            const serverError = /*[[${error != null}]]*/ false;
+            const submittedCpf = /*[[${cpf}]]*/ '';
+
+            if (serverError && submittedCpf) {
+                cpfInput.value = formatCpfString(submittedCpf);
+                goToStepPassword();
+            }
+        });
+    </script>
+</body>
+</html>

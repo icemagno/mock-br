@@ -1,0 +1,19 @@
+server:
+  port: 8089
+
+mock:
+  issuer: ${MOCK_ISSUER_URI:http://localhost:8089}
+  users-file: classpath:users.json
+
+spring:
+  application:
+    name: mock-govbr
+  thymeleaf:
+    cache: false
+    mode: HTML
+    encoding: UTF-8
+
+logging:
+  level:
+    root: INFO
+    br.gov.defesa.mockgovbr: DEBUG

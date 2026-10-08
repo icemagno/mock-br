@@ -1,0 +1,4 @@
+br\gov\defesa\testback\config\CorsConfig.class
+br\gov\defesa\testback\config\SecurityConfig.class
+br\gov\defesa\testback\MockBrTestBackApplication.class
+br\gov\defesa\testback\controller\AuthController.class
